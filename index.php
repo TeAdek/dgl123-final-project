@@ -10,7 +10,7 @@
 <body>
     
 <header id="masthead" class="site-header layout-container">
-<a href="/">
+<a href="index.php">
     <img class="site-header__logo" src="images/logo.svg" alt="Logo">
 </a>
 </header>
@@ -37,27 +37,27 @@
                                     <ul class="form__items">
                                         <li class="form__item">
                                             <label for="homer">Homer Simpson</label>
-                                            <input id="homer" type="checkbox" name="simpson[]" value= "Homer"<?php if (in_array("Homer", $_POST['simpson'])) echo "checked='checked'"; ?> />                                
+                                            <input id="homer" type="checkbox" name="simpson[]" value= "Homer"<?php if (!empty($_POST['simpson']) && in_array("Homer", $_POST['simpson'])) echo "checked='checked'"; ?> />                                
                                         </li>
                                         <li class="form__item">
                                             <label for="marge">Marge Simpson</label>
-                                            <input id="marge" type="checkbox" name="simpson[]" value="Marge"<?php if (in_array("Marge", $_POST['simpson'])) echo "checked='checked'"; ?>>
+                                            <input id="marge" type="checkbox" name="simpson[]" value="Marge"<?php if (!empty($_POST['simpson']) && in_array("Marge", $_POST['simpson'])) echo "checked='checked'"; ?>>
                                         </li>
                                         <li class="form__item">
                                             <label for="bart">Bart Simpson</label>
-                                            <input id="bart" type="checkbox" name="simpson[]" value="Bart"<?php if (in_array("Bart", $_POST['simpson'])) echo "checked='checked'"; ?>>                                
+                                            <input id="bart" type="checkbox" name="simpson[]" value="Bart"<?php if (!empty($_POST['simpson']) && in_array("Bart", $_POST['simpson'])) echo "checked='checked'"; ?>>                                
                                         </li>
                                         <li class="form__item">
                                             <label for="lisa">Lisa Simpson</label>
-                                            <input id="lisa" type="checkbox" name="simpson[]" value="Lisa"<?php if (in_array("Lisa", $_POST['simpson'])) echo "checked='checked'"; ?>>                                
+                                            <input id="lisa" type="checkbox" name="simpson[]" value="Lisa"<?php if (!empty($_POST['simpson']) && in_array("Lisa", $_POST['simpson'])) echo "checked='checked'"; ?>>                                
                                         </li>
                                         <li class="form__item">
                                             <label for="maggie">Maggie Simpson</label> 
-                                            <input id="maggie" type="checkbox" name="simpson[]" value="Maggie"<?php if (in_array("Maggie", $_POST['simpson'])) echo "checked='checked'"; ?>>                                                                                  
+                                            <input id="maggie" type="checkbox" name="simpson[]" value="Maggie"<?php if (!empty($_POST['simpson']) && in_array("Maggie", $_POST['simpson'])) echo "checked='checked'"; ?>>                                                                                  
                                         </li>
                                         <li class="form__item">
                                             <label for="moe">Moe Szyslak</label>
-                                            <input id="moe" type="checkbox" name="simpson[]" value="Moe"<?php if (in_array("Moe", $_POST['simpson'])) echo "checked='checked'"; ?>>                                
+                                            <input id="moe" type="checkbox" name="simpson[]" value="Moe"<?php if (!empty($_POST['simpson']) && in_array("Moe", $_POST['simpson'])) echo "checked='checked'"; ?>>                                
                                         </li>
                                     </ul>
                                         <input class="form__button" type="submit" value="Show Characters">
