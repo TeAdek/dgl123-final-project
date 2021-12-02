@@ -37,27 +37,27 @@
                                     <ul class="form__items">
                                         <li class="form__item">
                                             <label for="homer">Homer Simpson</label>
-                                            <input id="homer" type="checkbox" name="simpson[]" value= "Homer"<?php if (!empty($_POST['simpson']) && in_array("Homer", $_POST['simpson'])) echo "checked='checked'"; ?> />                                
+                                            <input id="homer" type="checkbox" name="simpson[]" value= "Homer"<?= checkBox('Homer', 'simpson'); ?> />                                
                                         </li>
                                         <li class="form__item">
                                             <label for="marge">Marge Simpson</label>
-                                            <input id="marge" type="checkbox" name="simpson[]" value="Marge"<?php if (!empty($_POST['simpson']) && in_array("Marge", $_POST['simpson'])) echo "checked='checked'"; ?>>
+                                            <input id="marge" type="checkbox" name="simpson[]" value="Marge"<?= checkBox('Marge', 'simpson'); ?>>
                                         </li>
                                         <li class="form__item">
                                             <label for="bart">Bart Simpson</label>
-                                            <input id="bart" type="checkbox" name="simpson[]" value="Bart"<?php if (!empty($_POST['simpson']) && in_array("Bart", $_POST['simpson'])) echo "checked='checked'"; ?>>                                
+                                            <input id="bart" type="checkbox" name="simpson[]" value="Bart"<?= checkBox('Bart', 'simpson'); ?>>                                
                                         </li>
                                         <li class="form__item">
                                             <label for="lisa">Lisa Simpson</label>
-                                            <input id="lisa" type="checkbox" name="simpson[]" value="Lisa"<?php if (!empty($_POST['simpson']) && in_array("Lisa", $_POST['simpson'])) echo "checked='checked'"; ?>>                                
+                                            <input id="lisa" type="checkbox" name="simpson[]" value="Lisa"<?= checkBox('Lisa', 'simpson'); ?>>                                
                                         </li>
                                         <li class="form__item">
                                             <label for="maggie">Maggie Simpson</label> 
-                                            <input id="maggie" type="checkbox" name="simpson[]" value="Maggie"<?php if (!empty($_POST['simpson']) && in_array("Maggie", $_POST['simpson'])) echo "checked='checked'"; ?>>                                                                                  
+                                            <input id="maggie" type="checkbox" name="simpson[]" value="Maggie"<?= checkBox('Maggie', 'simpson');; ?>>                                                                                  
                                         </li>
                                         <li class="form__item">
                                             <label for="moe">Moe Szyslak</label>
-                                            <input id="moe" type="checkbox" name="simpson[]" value="Moe"<?php if (!empty($_POST['simpson']) && in_array("Moe", $_POST['simpson'])) echo "checked='checked'"; ?>>                                
+                                            <input id="moe" type="checkbox" name="simpson[]" value="Moe"<?= checkBox('Moe', 'simpson'); ?>>                                
                                         </li>
                                     </ul>
                                         <input class="form__button" type="submit" value="Show Characters">
@@ -75,15 +75,11 @@
                         <ul class="characters__items">
                           <?php 
 
-
-// function checkBox($value, $array_name){
-//     echo $array_name;
-//     var_dump($value);
-// //    if (in_array("$value", $_POST['$array_name'])){
-// //     echo "checked='checked'";
-// //     } 
-// }
-
+function checkBox($value, $array_name){
+    if (!empty($_POST[$array_name]) && in_array($value, $_POST[$array_name])) 
+    echo "checked='checked'";
+}
+                                
 
                             
 $simpson = [
@@ -135,9 +131,6 @@ $simpson = [
     ]
 ];
 
-var_dump($_POST["simpson"]);
-//var_dump($simpson[5]); 
-//var_dump($simpson[6]["occupation"]);
 
 
 if(!empty($_POST["simpson"]) && is_array($_POST["simpson"])){
@@ -152,15 +145,15 @@ if(!empty($_POST["simpson"]) && is_array($_POST["simpson"])){
 
                             echo"<h3 class=\"characters__name\">" . $simpson[$row]['first_name'] . "</h3>";
                         echo"<div class=\"characters__age characters__attribute\">";
-                            print"<b>Age:</b>" . $simpson[$row]['age'];
+                            print"<b>Age: </b>" . $simpson[$row]['age'];
                         echo"</div>";
                         if(isset($simpson[$row]["occupation"])){
                             echo"<div class=\"characters__occupation characters__attribute\">";
-                                echo"<b>Occupation:</b>" . $simpson[$row]['occupation'];
+                                echo"<b>Occupation: </b>" . $simpson[$row]['occupation'];
                             echo"</div>"; 
                         if($simpson[$row]["voiced_by"] != ""){                                          
                             echo"<div class=\"characters__voicedBy characters__attribute\">";
-                                echo"<b>Voiced by:</b>" . $simpson[$row]['voiced_by'];                                                  
+                                echo"<b>Voiced by: </b>" . $simpson[$row]['voiced_by'];                                                  
                             echo"</div>";  
                         }  
                         }                                   
