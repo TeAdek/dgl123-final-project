@@ -37,27 +37,27 @@
                                     <ul class="form__items">
                                         <li class="form__item">
                                             <label for="homer">Homer Simpson</label>
-                                            <input id="homer" type="checkbox" name="simpson[]" value="Homer">                                
+                                            <input id="homer" type="checkbox" name="simpson[]" value= "Homer"<?php if (in_array("Homer", $_POST['simpson'])) echo "checked='checked'"; ?> />                                
                                         </li>
                                         <li class="form__item">
                                             <label for="marge">Marge Simpson</label>
-                                            <input id="marge" type="checkbox" name="simpson[]" value="Marge">
+                                            <input id="marge" type="checkbox" name="simpson[]" value="Marge"<?php if (in_array("Marge", $_POST['simpson'])) echo "checked='checked'"; ?>>
                                         </li>
                                         <li class="form__item">
                                             <label for="bart">Bart Simpson</label>
-                                            <input id="bart" type="checkbox" name="simpson[]" value="Bart">                                
+                                            <input id="bart" type="checkbox" name="simpson[]" value="Bart"<?php if (in_array("Bart", $_POST['simpson'])) echo "checked='checked'"; ?>>                                
                                         </li>
                                         <li class="form__item">
                                             <label for="lisa">Lisa Simpson</label>
-                                            <input id="lisa" type="checkbox" name="simpson[]" value="Lisa">                                
+                                            <input id="lisa" type="checkbox" name="simpson[]" value="Lisa"<?php if (in_array("Lisa", $_POST['simpson'])) echo "checked='checked'"; ?>>                                
                                         </li>
                                         <li class="form__item">
                                             <label for="maggie">Maggie Simpson</label> 
-                                            <input id="maggie" type="checkbox" name="simpson[]" value="Maggie">                                                                                  
+                                            <input id="maggie" type="checkbox" name="simpson[]" value="Maggie"<?php if (in_array("Maggie", $_POST['simpson'])) echo "checked='checked'"; ?>>                                                                                  
                                         </li>
                                         <li class="form__item">
                                             <label for="moe">Moe Szyslak</label>
-                                            <input id="moe" type="checkbox" name="simpson[]" value="Moe">                                
+                                            <input id="moe" type="checkbox" name="simpson[]" value="Moe"<?php if (in_array("Moe", $_POST['simpson'])) echo "checked='checked'"; ?>>                                
                                         </li>
                                     </ul>
                                         <input class="form__button" type="submit" value="Show Characters">
@@ -74,6 +74,17 @@
                     <div class="characters__row layout-row">
                         <ul class="characters__items">
                           <?php 
+
+
+// function checkBox($value, $array_name){
+//     echo $array_name;
+//     var_dump($value);
+// //    if (in_array("$value", $_POST['$array_name'])){
+// //     echo "checked='checked'";
+// //     } 
+// }
+
+
                             
 $simpson = [
     [
