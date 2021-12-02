@@ -37,27 +37,27 @@
                                     <ul class="form__items">
                                         <li class="form__item">
                                             <label for="homer">Homer Simpson</label>
-                                            <input id="homer" type="checkbox" name="simpson" value="Homer">                                
+                                            <input id="homer" type="checkbox" name="simpson[]" value="Homer">                                
                                         </li>
                                         <li class="form__item">
                                             <label for="marge">Marge Simpson</label>
-                                            <input id="marge" type="checkbox" name="simpson" value="Marge">
+                                            <input id="marge" type="checkbox" name="simpson[]" value="Marge">
                                         </li>
                                         <li class="form__item">
                                             <label for="bart">Bart Simpson</label>
-                                            <input id="bart" type="checkbox" name="simpson" value="Bart">                                
+                                            <input id="bart" type="checkbox" name="simpson[]" value="Bart">                                
                                         </li>
                                         <li class="form__item">
                                             <label for="lisa">Lisa Simpson</label>
-                                            <input id="lisa" type="checkbox" name="simpson" value="Lisa">                                
+                                            <input id="lisa" type="checkbox" name="simpson[]" value="Lisa">                                
                                         </li>
                                         <li class="form__item">
                                             <label for="maggie">Maggie Simpson</label> 
-                                            <input id="maggie" type="checkbox" name="simpson" value="Maggie">                                                                                  
+                                            <input id="maggie" type="checkbox" name="simpson[]" value="Maggie">                                                                                  
                                         </li>
                                         <li class="form__item">
                                             <label for="moe">Moe Szyslak</label>
-                                            <input id="moe" type="checkbox" name="simpson" value="Moe">                                
+                                            <input id="moe" type="checkbox" name="simpson[]" value="Moe">                                
                                         </li>
                                     </ul>
                                         <input class="form__button" type="submit" value="Show Characters">
@@ -129,35 +129,39 @@ var_dump($_POST["simpson"]);
 //var_dump($simpson[6]["occupation"]);
 
 
+if(!empty($_POST["simpson"]) && is_array($_POST["simpson"])){
+    foreach($_POST["simpson"] as $simpson_char){
+        for($row = 0; $row < count($simpson); $row++){
 
-for($row = 0; $row < count($simpson); $row++){
+            if($simpson_char == $simpson[$row]["first_name"]){
+                echo"<li class=\"characters__itemContainer\">";
+                        echo"<div class=\"characters__item\">";
+                            echo"<img src=" . $simpson[$row]['image_url'] . " alt=" . $simpson[$row]['first_name'] . " class=\"characters__image\">";                           
+                        echo"<div class=\"characters__info\">";
 
-    if($_POST["simpson"] == $simpson[$row]["first_name"]){
-        echo"<li class=\"characters__itemContainer\">";
-                echo"<div class=\"characters__item\">";
-                    echo"<img src=" . $simpson[$row]['image_url'] . " alt=" . $simpson[$row]['first_name'] . " class=\"characters__image\">";                           
-                echo"<div class=\"characters__info\">";
-
-                    echo"<h3 class=\"characters__name\">" . $simpson[$row]['first_name'] . "</h3>";
-                echo"<div class=\"characters__age characters__attribute\">";
-                    print"<b>Age:</b>" . $simpson[$row]['age'];
-                echo"</div>";
-                if(isset($simpson[$row]["occupation"])){
-                    echo"<div class=\"characters__occupation characters__attribute\">";
-                        echo"<b>Occupation:</b>" . $simpson[$row]['occupation'];
-                    echo"</div>"; 
-                if($simpson[$row]["voiced_by"] != ""){                                          
-                    echo"<div class=\"characters__voicedBy characters__attribute\">";
-                        echo"<b>Voiced by:</b>" . $simpson[$row]['voiced_by'];                                                  
-                    echo"</div>";  
-                }  
-                }                                   
-                echo"</div>";
-                echo"</div>";
-        echo"</li>";
+                            echo"<h3 class=\"characters__name\">" . $simpson[$row]['first_name'] . "</h3>";
+                        echo"<div class=\"characters__age characters__attribute\">";
+                            print"<b>Age:</b>" . $simpson[$row]['age'];
+                        echo"</div>";
+                        if(isset($simpson[$row]["occupation"])){
+                            echo"<div class=\"characters__occupation characters__attribute\">";
+                                echo"<b>Occupation:</b>" . $simpson[$row]['occupation'];
+                            echo"</div>"; 
+                        if($simpson[$row]["voiced_by"] != ""){                                          
+                            echo"<div class=\"characters__voicedBy characters__attribute\">";
+                                echo"<b>Voiced by:</b>" . $simpson[$row]['voiced_by'];                                                  
+                            echo"</div>";  
+                        }  
+                        }                                   
+                        echo"</div>";
+                        echo"</div>";
+                echo"</li>";
+            }
+        } /* Display Simpson Pictures */
     }
+    
 }
-                          ?>                                                                                                                                                                                                                                                                                                                                                                                                </ul>
+                         ?>                                                                                                                                                                                                                                                                                                                                                                                                </ul>
                     </div>
                 </div>
 
