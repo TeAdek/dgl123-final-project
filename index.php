@@ -124,14 +124,15 @@ $simpson = [
     ]
 ];
 
-var_dump($_POST["simpson"]); 
-
+var_dump($_POST["simpson"]);
+var_dump(count($simpson)); 
+//var_dump($simpson[6]["occupation"]);
 
 //https://stackoverflow.com/questions/4128323/in-array-and-multidimensional-array
 
 
 
-for($row = 0; $row < 5; $row++){
+for($row = 0; $row < count($simpson); $row++){
 
     if($_POST["simpson"] == $simpson[$row]["first_name"]){
         echo"<li class=\"characters__itemContainer\">";
@@ -143,14 +144,16 @@ for($row = 0; $row < 5; $row++){
                 echo"<div class=\"characters__age characters__attribute\">";
                     print"<b>Age:</b>" . $simpson[$row]['age'];
                 echo"</div>";
-
+                if(isset($simpson[$row]["occupation"])){
                     echo"<div class=\"characters__occupation characters__attribute\">";
                         echo"<b>Occupation:</b>" . $simpson[$row]['occupation'];
-                    echo"</div>";                                                   
+                    echo"</div>"; 
+                if(empty($simpson[$row]["voiced_by"])){                                          
                     echo"<div class=\"characters__voicedBy characters__attribute\">";
                         echo"<b>Voiced by:</b>" . $simpson[$row]['voiced_by'];                                                  
                     echo"</div>";  
-                                                   
+                }  
+                }                                   
                 echo"</div>";
                 echo"</div>";
         echo"</li>";
