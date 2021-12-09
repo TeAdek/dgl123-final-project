@@ -147,11 +147,11 @@ if(!empty($_POST["simpson"]) && is_array($_POST["simpson"])){
                         echo"<div class=\"characters__age characters__attribute\">";
                             print"<b>Age: </b>" . $simpson[$row]['age'];
                         echo"</div>";
-                        if(isset($simpson[$row]["occupation"])){
+                        if(isset($simpson[$row]["occupation"])){//Check If Occupation Description is set
                             echo"<div class=\"characters__occupation characters__attribute\">";
                                 echo"<b>Occupation: </b>" . $simpson[$row]['occupation'];
                             echo"</div>"; 
-                        if($simpson[$row]["voiced_by"] != ""){                                          
+                        if($simpson[$row]["voiced_by"] != ""){ //Check if Voiced By Description is a empty string                                     
                             echo"<div class=\"characters__voicedBy characters__attribute\">";
                                 echo"<b>Voiced by: </b>" . $simpson[$row]['voiced_by'];                                                  
                             echo"</div>";  
